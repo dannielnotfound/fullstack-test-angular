@@ -4,7 +4,6 @@ import { Observable, interval } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { timer, concat } from 'rxjs';
 import { environment } from '../../environments/environment';
-
 import { ApiResponse } from '../api-response';
 
 
@@ -18,7 +17,9 @@ export class ApiService {
   ) { }
 
   getData() {
-    // A cada 15 segundos atualiza o horarío na view (Valores menores ocosionaram HTTP 409)
+
+    // A cada 15 segundos atualiza o horarío na view (tempos menores ocasionarão HTTP 409)
+
     const firstInterval = timer(1);
     const secondInterval = interval(15000);
 

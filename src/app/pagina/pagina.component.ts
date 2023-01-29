@@ -17,6 +17,7 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class PaginaComponent implements OnInit {
   time: any;
+  error: string;
   date: any;
   public data: FormGroup;
   public apiText = '';
@@ -34,7 +35,12 @@ export class PaginaComponent implements OnInit {
     });
 
     // Retorna a cada 60 segundos a data e o horário 
-    this.apiService.getData().subscribe((response) => {
+    this.apiService.getData().pipe(
+      catchError((err) => {
+        this.error = 'Falha na comunicação com o servidor.';
+        return [];
+      })
+    ).subscribe((response) => {
       this.time = response.time;
       this.date = response.date;
       this.cd.detectChanges();
@@ -54,7 +60,12 @@ export class PaginaComponent implements OnInit {
   }
 
   public createText() {
-    this.apiService.getText(this.data.value).subscribe((response) => {
+    this.apiService.getText(this.data.value).pipe(
+      catchError((err) => {
+        this.apiText = 'Falha na comunicação com o servidor.';
+        return [];
+      })
+    ).subscribe((response) => {
       this.apiText = response.text;
     });
     this.data.reset();

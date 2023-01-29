@@ -6,16 +6,16 @@
     <h2>Sidebar</h2>
     <a href="/start">START</a>
   </mat-sidenav>
-
   <mat-sidenav-content>
     <!--Main content of Application-->
     <main>
       <div class="img-wrapper">
-        <img src="./assets/logo.png" alt="">
+        <img src="./assets/logo.png" alt="" />
       </div>
       <div class="content">
         <div class="data">
-          <p>{{ time }} {{ date }}</p>
+          <p class="#noError"*ngIf="error;else noError">{{error}}</p>
+          <p #noError>{{time}}  {{date}}</p>
         </div>
         <h1>Fullstack Angular Test</h1>
         <mat-form-field [formGroup]="data">
@@ -32,5 +32,12 @@
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<mat-toolbar class="footer"><span>Desenvolvido com <span class="ico"><mat-icon fontIcon="heart"><i>favorite</i></mat-icon>
-</span> por Daniel Oliveira</span></mat-toolbar>
+<mat-toolbar class="footer"
+  ><span
+    >Desenvolvido com
+    <span class="ico"
+      ><mat-icon fontIcon="heart"><i>favorite</i></mat-icon>
+    </span>
+    por Daniel Oliveira</span
+  ></mat-toolbar
+>
