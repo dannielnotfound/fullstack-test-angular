@@ -5,6 +5,8 @@ import { switchMap } from 'rxjs/operators';
 import { timer, concat } from 'rxjs';
 import { environment } from '../../environments/environment';
 
+import { ApiResponse } from '../api-response';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,7 @@ export class ApiService {
     const secondInterval = interval(15000);
 
     return concat(firstInterval, secondInterval)
-      .pipe(switchMap(() => this.http.get(environment.apiHost  + '/getData')));
+      .pipe(switchMap(() => this.http.get<ApiResponse>(environment.apiHost  + '/getData')));
   }
   
   public getText(text: string): Observable<any>{
