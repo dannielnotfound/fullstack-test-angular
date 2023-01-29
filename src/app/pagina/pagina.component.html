@@ -4,12 +4,15 @@
 <mat-sidenav-container class="container">
   <mat-sidenav #sidenav mode="side" opened class="sidenav">
     <h2>Sidebar</h2>
-    <a href="/start">Start</a>
+    <a href="/start">START</a>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <!--Main content of Application-->
     <main>
+      <div class="img-wrapper">
+        <img src="./assets/logo.png" alt="">
+      </div>
       <div class="content">
         <div class="data">
           <p>{{ time }} {{ date }}</p>
@@ -29,4 +32,5 @@
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<mat-toolbar class="footer"><span>Desenvolvido por Daniel Oliveira</span></mat-toolbar>
+<mat-toolbar class="footer"><span>Desenvolvido com <span class="ico"><mat-icon fontIcon="heart"><i>favorite</i></mat-icon>
+</span> por Daniel Oliveira</span></mat-toolbar>
