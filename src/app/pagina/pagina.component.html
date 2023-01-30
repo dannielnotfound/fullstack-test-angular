@@ -14,7 +14,7 @@
       </div>
       <div class="content">
         <div class="data">
-          <p class="#noError"*ngIf="error;else noError">{{error}}</p>
+          <p class="error" *ngIf="error;else noError">{{error}}</p>
           <p #noError>{{time}}  {{date}}</p>
         </div>
         <h1>Fullstack Angular Test</h1>
